@@ -1,6 +1,6 @@
 # DCDI
 This work centers around two major limitations of MOS, i.e., the
-severe optical aberrations and uncontrollable DoF, for achieving
+severe optical aberrations and uncontrollable Depth-of-Field (DoF), for achieving
 single-lens controllable DoF imaging via computational methods.
 A Depth-aware Controllable DoF Imaging (DCDI) framework is
 proposed equipped with All-in-Focus (AiF) aberration correction
