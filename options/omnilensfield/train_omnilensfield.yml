@@ -1,0 +1,120 @@
+# general settings
+name: omnilensfield
+model_type: PSF_Restoration_Model
+scale: 1
+num_gpu: 1  # set num_gpu: 0 for cpu mode
+manual_seed: 10
+
+# dataset and data loader settings
+datasets:
+  train:
+    name: psf_map
+    type: Paired_XYZN2PSF_Dataset
+    dataroot_gt: /path/to/your/4d_psf_map.h5
+    meta_info_file: basicsr/data/meta_info/meta_info_psfmap_xyzn_val_z0.7_10_n4_1%.txt
+    io_backend:
+      type: disk
+
+    patchlength: 16
+    img_size: [1280,1920]
+    psf_size: 41
+    max_depth: 10 # 单位 m
+    N_lens: 4
+    # data loader
+    num_worker_per_gpu: 32
+    batch_size_per_gpu: 256
+    dataset_enlarge_ratio: 1
+    prefetch_mode: ~
+
+  val:
+    name: psf_map
+    type: Paired_XYZN2PSF_Dataset
+
+    dataroot_gt: /path/to/your/4d_psf_map.h5
+
+    meta_info_file: basicsr/data/meta_info/meta_info_psfmap_xyzn_val_z0.7_10_n4_1%.txt
+    patchlength: 16
+    img_size: [1280,1920]
+    psf_size: 41
+    max_depth: 10 # 单位 m
+    N_lens: 4
+    io_backend:
+      type: disk
+
+# network structures
+network_g:
+#  ema_decay: 0.999
+  type: mlp_psf_3heads_w_sigmoid #input (B,4) output (B,3,41,41)
+  in_features: 4
+  psf_channels: 3
+  pred_psf_size: 41
+  hidden_layers: 1
+  hidden_features: 2048
+
+# path
+path:
+  pretrain_network_g: ~
+  strict_load_g: true
+  resume_state: ~
+
+# training settings
+train:
+  ema_decay: 0.999
+  optim_g:
+    type: AdamW
+    lr: !!float 1e-4
+    weight_decay: 0
+    betas: [0.9, 0.99]
+
+  scheduler:
+    type: CosineAnnealingRestartLR
+    periods: [600000]
+    restart_weights: [1]
+    eta_min: !!float 1e-7
+
+  total_iter: 600000
+  warmup_iter: -1  # no warm up
+
+  # losses
+  pixel_opt:
+    type: MSELoss
+    loss_weight: 1.0
+    reduction: mean
+
+# validation settings
+val:
+  val_freq: !!float 3e4
+  save_img: true
+
+  pbar: true
+
+  metrics:
+    psnr: # metric name, can be arbitrary
+      type: calculate_psnr
+      crop_border: 0
+      test_y_channel: false
+
+    ssim: # metric name, can be arbitrary
+      type: calculate_ssim
+      crop_border: 0
+      test_y_channel: false
+
+    # lpips: # metric name, can be arbitrary
+    #   type: calculate_lpips
+    #   crop_border: 0
+    #   test_y_channel: false
+
+# logging settings
+logger:
+  print_freq: 200
+  save_checkpoint_freq: !!float 3e4
+  use_tb_logger: true
+  wandb:
+    project: ~
+    resume_id: ~
+
+# dist training settings
+dist_params:
+  backend: nccl
+  port: 29500
+

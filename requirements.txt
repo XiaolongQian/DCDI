@@ -1,0 +1,76 @@
+absl-py==2.1.0
+addict==2.4.0
+# Editable install with no version control (basicsr==1.4.2)
+-e /mnt/sto/qxl/DepthMOS/BasicSR
+Brotli @ file:///tmp/abs_ecyw11_7ze/croots/recipe/brotli-split_1659616059936/work
+certifi @ file:///croot/certifi_1725551672989/work/certifi
+charset-normalizer @ file:///tmp/build/80754af9/charset-normalizer_1630003229654/work
+contourpy==1.2.1
+cycler==0.12.1
+einops==0.7.0
+filelock==3.13.4
+fonttools==4.51.0
+fsspec==2024.3.1
+future==1.0.0
+grpcio==1.62.2
+h5py==3.11.0
+huggingface-hub==0.26.3
+idna @ file:///croot/idna_1666125576474/work
+imageio==2.34.1
+imath==0.0.2
+importlib_metadata==7.1.0
+importlib_resources==6.4.0
+kiwisolver==1.4.5
+lazy_loader==0.4
+lmdb==1.4.1
+lpips==0.1.4
+Markdown==3.6
+markdown-it-py==3.0.0
+MarkupSafe==2.1.5
+matplotlib==3.8.4
+mdurl==0.1.2
+meshio==5.3.5
+mkl-fft @ file:///croot/mkl_fft_1695058164594/work
+mkl-random @ file:///croot/mkl_random_1695059800811/work
+mkl-service==2.4.0
+mmcv==2.0.0
+mmengine==0.10.4
+munch==4.0.0
+networkx==3.2.1
+numpy @ file:///croot/numpy_and_numpy_base_1708638617955/work/dist/numpy-1.26.4-cp39-cp39-linux_x86_64.whl#sha256=6094eeedd869502faa0fd0a8c5ad3a70c5779be06ddd1feb7627e5c212fac420
+opencv-python==4.9.0.80
+OpenEXR==3.2.4
+packaging==24.0
+pillow @ file:///croot/pillow_1707233021655/work
+platformdirs==4.2.0
+protobuf==4.25.3
+Pygments==2.17.2
+pyparsing==3.1.2
+PySocks @ file:///tmp/build/80754af9/pysocks_1605305812635/work
+python-dateutil==2.9.0.post0
+PyYAML==6.0.1
+regex==2024.11.6
+requests @ file:///croot/requests_1707355572290/work
+rich==13.7.1
+safetensors==0.4.3
+scikit-image==0.22.0
+scipy==1.13.0
+six==1.16.0
+tb-nightly==2.17.0a20240422
+tensorboard-data-server==0.7.2
+termcolor==2.4.0
+tifffile==2024.4.18
+timm==0.6.7
+tokenizers==0.20.3
+tomli==2.0.1
+torch==1.13.1
+torchaudio==0.13.1
+torchvision==0.14.1
+tqdm==4.66.2
+transformers==4.46.3
+transforms==0.2.1
+typing_extensions @ file:///croot/typing_extensions_1705599297034/work
+urllib3 @ file:///croot/urllib3_1707770551213/work
+Werkzeug==3.0.2
+yapf==0.40.2
+zipp==3.18.1

@@ -1,0 +1,139 @@
+# general settings
+name: dcdi_depth_aware_training_wdepth_mechanism
+
+model_type: SwinIR_wdepth_Model
+scale: 1
+num_gpu: 1  # set num_gpu: 0 for cpu mode
+manual_seed: 0
+
+# dataset and data loader settings
+datasets:
+  train:
+    name: NYU
+    type: PairedImage_wdepth_Dataset
+    dataroot_gt: /path/to/your/gt.png
+    dataroot_lq: /path/to/your/ab.png
+    depth_map: /path/to/your/depth.npy
+    meta_info_file: basicsr/data/meta_info/meta_info_NYU_train.txt
+
+    filename_tmpl: '{}'
+    io_backend:
+      type: disk
+
+    norm_depth_map: true
+
+    gt_size: 256
+    use_hflip: true
+    use_rot: true
+
+    # data loader
+    num_worker_per_gpu: 8
+    batch_size_per_gpu: 8
+    dataset_enlarge_ratio: 1
+    prefetch_mode: ~
+
+  val:
+    name: Middlebury
+    type: PairedImage_wdepth_Dataset
+    dataroot_gt: /path/to/your/gt/folder
+    dataroot_lq: /path/to/your/ab/folder
+    depth_map: /path/to/your/depth.npy
+    norm_depth_map: true
+
+    io_backend:
+      type: disk
+  val_2:
+    name: NYU
+    type: PairedImage_wdepth_Dataset
+    dataroot_gt: /path/to/your/gt/folder
+    dataroot_lq: /path/to/your/ab/folder
+    depth_map: /path/to/your/depth.npy 
+    meta_info_file: basicsr/data/meta_info/meta_info_NYU_val.txt
+    norm_depth_map: true
+    io_backend:
+      type: disk
+
+# network structures
+network_g:
+  type: DACN
+  upscale: 4
+  in_chans: 48
+  out_chans: 3
+  img_size: 64
+  window_size: 8
+  img_range: 1.
+  depths: [6, 6, 6, 6, 6, 6]
+  embed_dim: 180
+  num_heads: [6, 6, 6, 6, 6, 6]
+  mlp_ratio: 2
+  upsampler: 'pixelshuffle'
+  resi_connection: '1conv'
+  RACM: 'rstb' # you can replace any module as you like
+
+# path
+path:
+  pretrain_network_g: ~
+  strict_load_g: true
+  param_key_g: params_ema
+  resume_state: ~
+
+# training settings
+train:
+  ema_decay: 0.999
+  optim_g:
+    type: Adam
+    lr: !!float 2e-4
+    weight_decay: 0
+    betas: [0.9, 0.99]
+
+  scheduler:
+    type: MultiStepLR
+    milestones: [100000, 160000, 180000, 190000]
+    gamma: 0.5
+
+  total_iter: 200000
+  warmup_iter: -1  # no warm up
+
+  # losses
+  pixel_opt:
+    type: L1Loss
+    loss_weight: 1.0
+    reduction: mean
+
+# validation settings
+val:
+  val_freq: !!float 1e4
+  save_img: true
+
+  pbar: true
+
+  metrics:
+    psnr: # metric name, can be arbitrary
+      type: calculate_psnr
+      crop_border: 0
+      test_y_channel: false
+
+    ssim: # metric name, can be arbitrary
+      type: calculate_ssim
+      crop_border: 0
+      test_y_channel: false
+
+    lpips:
+      type: calculate_lpips
+      crop_border: 0
+      test_y_channel: false
+
+
+# logging settings
+logger:
+  print_freq: 100
+  save_checkpoint_freq: !!float 1e4
+  use_tb_logger: true
+  wandb:
+    project: ~
+    resume_id: ~
+
+# dist training settings
+dist_params:
+  backend: nccl
+  port: 29500
