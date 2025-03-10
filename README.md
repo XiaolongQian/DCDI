@@ -11,6 +11,9 @@ Controllable Depth-of-Field (DoF) imaging commonly produces amazing visual effec
 The source code will be made publicly available after the paper is accepted.
 ![image](https://github.com/XiaolongQian/DCDI/blob/main/real_world_result.png)
 
+### License:
+This project is under the MIT license, and it is based on [BasicSR](https://github.com/XPixelGroup/BasicSR) which is under Apache 2.0 license.
+
 ### 🤝 Publication:
 Please consider referencing this paper if you use the ```code``` or ```data``` from our work.
 Thanks a lot :)
