@@ -1,6 +1,6 @@
 # DCDI
 
-### Towards Single-Lens Controllable Depth-of-Field Imaging via All-in-Focus Aberration Correction and Monocular Depth Estimation [[PDF]](https://arxiv.org/pdf/2409.09754)
+### Towards Single-Lens Controllable Depth-of-Field Imaging via Depth-Aware Point Spread Functions [[PDF]](https://arxiv.org/pdf/2409.09754)
 IEEE Transactions on Computational Imaging (TCI), 2025
 
 Xiaolong Qian*, Qi Jiang*, Yao Gao, Shaohua Gao, Zhonghua Yi, [Lei Sun](https://ahupujr.github.io/), Kai Wei, Haifeng Li, [Kailun Yang](https://yangkailun.com/)†, [Kaiwei Wang](http://wangkaiwei.org/)†, [Jian Bai](https://person.zju.edu.cn/baijian)
