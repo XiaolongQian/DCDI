@@ -23,7 +23,7 @@ python setup.py develop
 ```
 ### Training:
 ```
-PYTHONPATH="./:${PYTHONPATH}" CUDA_VISIBLE_DEVICES=0 python basicsr/train.py -opt options/dacn/dacn.yml
+PYTHONPATH="./:${PYTHONPATH}" CUDA_VISIBLE_DEVICES=0 python basicsr/train.py -opt options/dacn/train_dacn.yml
 ```
 
 ### License:
