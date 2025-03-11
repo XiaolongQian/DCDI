@@ -11,6 +11,21 @@ Controllable Depth-of-Field (DoF) imaging commonly produces amazing visual effec
 The source code will be made publicly available after the paper is accepted.
 ![image](https://github.com/XiaolongQian/DCDI/blob/main/real_world_result.png)
 
+### Installation:
+The implementation of our work is based on [BasicSR](https://github.com/XPixelGroup/BasicSR), which is an open source toolbox for image/video restoration tasks.
+```
+conda create -n depthmos python=3.8
+conda activate depthmos
+conda install cudatoolkit==11.6 -c nvidia
+conda install pytorch==1.13.1 torchvision==0.14.1 torchaudio==0.13.1 pytorch-cuda=11.6 -c pytorch -c nvidia
+pip install -r requirements.txt
+python setup.py develop
+```
+### Training:
+```
+PYTHONPATH="./:${PYTHONPATH}" CUDA_VISIBLE_DEVICES=0 python basicsr/train.py -opt options/dacn/dacn.yml
+```
+
 ### License:
 This project is under the MIT license, and it is based on [BasicSR](https://github.com/XPixelGroup/BasicSR) which is under Apache 2.0 license.
 
