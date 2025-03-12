@@ -19,7 +19,7 @@ map inferred by Omni-Lens-Field, single-lens controllable DoF imaging is achieve
 ### Results
 ![image](https://github.com/XiaolongQian/DCDI/blob/main/figures/DA2T.png)
 Comparison of recovery results of different training schemes. For comparison purposes, we first simulate a depth-unaware training dataset as our baseline, which is obtained by convolving the PSF map of the same scene depth. To
-verify the generalization of our proposed DA2T scheme, we select the main components of four representative state-of-the-art SR models, including a CNN-based Module, i.e., Residual Block (RB) in EDSR [23] and three transformerbased Modules including Residual Swin Transformer Block (RSTB) in SwinIR [24], Permuted Self-Attention (PSA) in SRformer [25], and Residual Deep-feature-extraction Group (RDG) in DRCT [26]) for our experiments. To ensure a fair comparison, the experimental settings of the two training schemes are the same, including model parameters, initial learning rate, decay strategy, and number of training epochs.
+verify the generalization of our proposed DA2T scheme, we select the main components of four representative state-of-the-art SR models, including a CNN-based Module, i.e., Residual Block (RB) in EDSR [23] and three transformer-based Modules including Residual Swin Transformer Block (RSTB) in SwinIR [24], Permuted Self-Attention (PSA) in SRformer [25], and Residual Deep-feature-extraction Group (RDG) in DRCT [26]) for our experiments. To ensure a fair comparison, the experimental settings of the two training schemes are the same, including model parameters, initial learning rate, decay strategy, and number of training epochs.
 ![image](https://github.com/XiaolongQian/DCDI/blob/main/figures/Depth_mechanism.png)
 Restoration experiment of depth-aware mechanism. Similar to the experiment in the previous section, we sequentially replaced the RACM in DACN with four representative stateof-the-art super-resolution models, to investigate the recovery capacity of our proposed depth-aware mechanisms (RDICAB and D2CB).
 ![image](https://github.com/XiaolongQian/DCDI/blob/main/figures/outdoor_real_wolrd.png)
@@ -36,6 +36,7 @@ conda install pytorch==1.13.1 torchvision==0.14.1 torchaudio==0.13.1 pytorch-cud
 pip install -r requirements.txt
 python setup.py develop
 ```
+
 ### Training:
 ```
 PYTHONPATH="./:${PYTHONPATH}" CUDA_VISIBLE_DEVICES=0 python basicsr/train.py -opt options/dacn/train_dacn.yml
@@ -56,3 +57,5 @@ Thanks a lot :)
   year={2025}
 }
 ```
+### Concat:
+Please concat me via ```xiaolongqian@zju.edu.cn``` if you have any questions.
