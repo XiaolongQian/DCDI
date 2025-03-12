@@ -10,7 +10,16 @@ Controllable Depth-of-Field (DoF) imaging commonly produces amazing visual effec
 
 The source code will be made publicly available after the paper is accepted.
 ![image](https://github.com/XiaolongQian/DCDI/blob/main/real_world_result.png)
-
+### Overview
+![image](https://github.com/XiaolongQian/DCDI/blob/main/figures/framework.png)
+The proposed DCDI framework is illustrated in Fig. 2. Our framework is comprised of four components: the simulation of a depth-aware aberration dataset, an MDE module, a CAC module, and a PSF representation module. In Sec. III-A, we
+introduce a method for simulating a depth-aware aberration dataset, which serves as a foundation for enabling the network to adaptively learn depth-varying degradation characteristics during Depth-aware Degradation-adaptive Training (DA2T) scheme. In Sec. III-B, Residual Depth-Image Cross-Attention Block (RDICAB) and Depth-aware Deformable Convolution Block (D2CB) are proposed as two depth-aware mechanisms to enhance the recovery performance of the Depth-Aware
+Correction Network (DACN). In Sec. III-C, we design the Omni-Lens-Field to represent the 4D PSFLib of various lenses. Based on the recovered AiF aberration-free image, the depth map estimated by UniDepth [11] and the depth-aware PSF
+map inferred by Omni-Lens-Field, single-lens controllable DoF imaging is achieved.
+### Results
+![image](https://github.com/XiaolongQian/DCDI/blob/main/figures/DA2T.png)
+Comparison of recovery results of different training schemes. For comparison purposes, we first simulate a depthunaware training dataset as our baseline, which is obtained by convolving the PSF map of the same scene depth. To
+verify the generalization of our proposed DA2T scheme, we select the main components of four representative stateof-the-art SR models, including a CNN-based Module, i.e., Residual Block (RB) in EDSR [23] and three transformerbased Modules including Residual Swin Transformer Block (RSTB) in SwinIR [24], Permuted Self-Attention (PSA) in SRformer [25], and Residual Deep-feature-extraction Group (RDG) in DRCT [26]) for our experiments. To ensure a fair comparison, the experimental settings of the two training schemes are the same, including model parameters, initial learning rate, decay strategy, and number of training epochs.
 ### Installation:
 The implementation of our work is based on [BasicSR](https://github.com/XPixelGroup/BasicSR), which is an open source toolbox for image/video restoration tasks.
 ```
