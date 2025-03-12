@@ -21,10 +21,10 @@ map inferred by Omni-Lens-Field, single-lens controllable DoF imaging is achieve
 Comparison of recovery results of different training schemes. For comparison purposes, we first simulate a depth-unaware training dataset as our baseline, which is obtained by convolving the PSF map of the same scene depth. To
 verify the generalization of our proposed DA2T scheme, we select the main components of four representative state-of-the-art SR models, including a CNN-based Module, i.e., Residual Block (RB) in EDSR [23] and three transformer-based Modules including Residual Swin Transformer Block (RSTB) in SwinIR [24], Permuted Self-Attention (PSA) in SRformer [25], and Residual Deep-feature-extraction Group (RDG) in DRCT [26]) for our experiments. To ensure a fair comparison, the experimental settings of the two training schemes are the same, including model parameters, initial learning rate, decay strategy, and number of training epochs.
 ![image](https://github.com/XiaolongQian/DCDI/blob/main/figures/Depth_mechanism.png)
-Restoration experiment of depth-aware mechanism. Similar to the experiment in the previous section, we sequentially replaced the RACM in DACN with four representative stateof-the-art super-resolution models, to investigate the recovery capacity of our proposed depth-aware mechanisms (RDICAB and D2CB).
+Restoration experiment of depth-aware mechanism. Similar to the experiment in the previous section, we sequentially replaced the RACM in DACN with four representative state-of-the-art super-resolution models, to investigate the recovery capacity of our proposed depth-aware mechanisms (RDICAB and D2CB).
 ![image](https://github.com/XiaolongQian/DCDI/blob/main/figures/outdoor_real_wolrd.png)
 Outdoor Scene Evaluation. The qualitative results of outdoor scenes are displayed in Fig. 10. Real-world outdoor scenes, characterized by more dynamic depth variations, present greater challenges for restoration.
-![image](https://github.com/XiaolongQian/DCDI/blob/main/figures/controllable DOF imaging.png)
+![image](https://github.com/XiaolongQian/DCDI/blob/main/figures/controllable_DOF_imaging.png)
 The real-world outdoor controllable DoF image results are presented in Fig. 13.
 ### Installation:
 The implementation of our work is based on [BasicSR](https://github.com/XPixelGroup/BasicSR), which is an open source toolbox for image/video restoration tasks.
