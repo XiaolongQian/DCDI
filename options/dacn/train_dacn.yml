@@ -11,8 +11,8 @@ datasets:
   train:
     name: NYU
     type: PairedImage_wdepth_Dataset
-    dataroot_gt: /path/to/your/gt.png
-    dataroot_lq: /path/to/your/ab.png
+    dataroot_gt: /path/to/your/gt/folder
+    dataroot_lq: /path/to/your/ab/folder
     depth_map: /path/to/your/depth.npy
     meta_info_file: basicsr/data/meta_info/meta_info_NYU_train.txt
 
