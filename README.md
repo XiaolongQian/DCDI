@@ -1,6 +1,6 @@
 # DCDI
 
-### Towards Single-Lens Controllable Depth-of-Field Imaging via Depth-Aware Point Spread Functions [[PDF]](https://arxiv.org/pdf/2409.09754) [[Dataset]](https://openxlab.org.cn/datasets/xiaolongqian/DCDIDataset)
+### Towards Single-Lens Controllable Depth-of-Field Imaging via Depth-Aware Point Spread Functions [[PDF]](https://arxiv.org/pdf/2409.09754) [[Dataset]](https://huggingface.co/datasets/Residual/DCDI)
 IEEE Transactions on Computational Imaging (TCI), 2025
 
 Xiaolong Qian*, Qi Jiang*, Yao Gao, Shaohua Gao, Zhonghua Yi, [Lei Sun](https://ahupujr.github.io/), Kai Wei, Haifeng Li, [Kailun Yang](https://yangkailun.com/)†, [Kaiwei Wang](http://wangkaiwei.org/)†, [Jian Bai](https://person.zju.edu.cn/baijian)
